@@ -117,7 +117,6 @@ public class ArrayListClass implements ListInterfaces {
 		Set<String> set = new HashSet<String>(this.arrayList);
 		this.arrayList.clear();
 		this.arrayList.addAll(set);
-
 	}
 
 	@Override

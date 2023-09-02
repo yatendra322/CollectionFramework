@@ -37,7 +37,7 @@ public class GetInput {
 	public String getYesOrNo() {
 		String choice2;
 		String choice = this.sc.next();
-		if (choice.equals("y") || choice.equals("Y") || choice.equals("n") || choice.equals("N")) {
+		if (choice.equals("y") || choice.equals("Y") || choice.equals("n") || choice.equals("N")||choice.equals("m") || choice.equals("M")) {
 			choice2 = choice;
 		} else {
 			System.out.println("Your key is wrong please press y/n");

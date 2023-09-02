@@ -27,8 +27,12 @@ public class ConditionHandler {
 
 				listDataStructureHandler();
 			}
-			System.out.println("Do you want any other operation, press y/n");
+			System.out.println("Do you want any other operation, press y/n ! Go for main manu press m ");
 			con = GetInput.getInstance().getYesOrNo();
+			if((con.equals("m") || con.equals("M"))){
+				Start.again();
+				break;
+			}
 		}
 		if ((con.equals("n") || con.equals("N"))) {
 			Start.again();
@@ -77,8 +81,12 @@ public class ConditionHandler {
 			} else if (x == 9) {
 				ArrayListClass.getIntance().shortElement();
 			}
-			System.out.println("Do you want any other operation, press y/n");
+			System.out.println("Do you want any other operation, press y/n ! Go for main manu press m ");
 			con = GetInput.getInstance().getYesOrNo();
+			if((con.equals("m") || con.equals("M"))){
+				Start.again();
+				break;
+			}
 		}
 	}
 
