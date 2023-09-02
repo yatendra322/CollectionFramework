@@ -1,5 +1,98 @@
 package com.list;
 
-public class ArrayListClass {
+import java.util.ArrayList;
+import java.util.List;
+
+import com.input.GetInput;
+import com.interface1.ListInterfaces;
+
+public class ArrayListClass implements ListInterfaces {
+
+	private List<String> arrayList;
+
+	static ArrayListClass alc;
+
+	private ArrayListClass() {
+		this.arrayList = new ArrayList<String>();
+	}
+
+	public static ArrayListClass getIntance() {
+		if (alc != null) {
+			return alc;
+		}
+		alc = new ArrayListClass();
+		return alc;
+	}
+
+	@Override
+	public void insertElement() {
+		System.out.println("Enter the new record :- ");
+		this.arrayList.add(GetInput.getInstance().getNewRecord());
+		System.out.println("Record added successfully !!!");
+
+	}
+
+	@Override
+	public void insertMutipleElement() {
+		System.out.println("Enter the limit of entired records ");
+		int limit = GetInput.getInstance().getChoiceNo();
+		System.out.println("Enter the " + limit + " records ");
+		for (int i = 0; i < limit; i++) {
+			this.arrayList.add(GetInput.getInstance().getNewRecord());
+		}
+		System.out.println("Record added successfully !!!");
+
+	}
+
+	@Override
+	public void updateElement() {
+		
+
+	}
+
+	@Override
+	public void retrieve() {
+		for (String x : this.arrayList) {
+			System.out.println(x);
+		}
+
+	}
+
+	@Override
+	public void retrieveFirstAndLastElement() {
+		if (this.arrayList.size() > 0)
+			System.out.println(this.arrayList.get(0) + " and " + this.arrayList.get(this.arrayList.size() - 1));
+	}
+
+	@Override
+	public void deleteElement() {
+		System.out.println("Enter the record for delete");
+		String el=GetInput.getInstance().getNewRecord();
+		for(String x:this.arrayList) {
+			if(x.equals(el)) {
+				this.arrayList.remove(el);
+				System.out.println("Opration successfully done !!!!");
+			}
+		}
+	}
+
+	@Override
+	public void deleteAllElement() {
+		this.arrayList.clear();
+		System.out.println("Opration successfully done !!!!");
+
+	}
+
+	@Override
+	public void deleteSameElementButSaveOne() {
+		
+
+	}
+
+	@Override
+	public void shortElement() {
+		// TODO Auto-generated method stub
+
+	}
 
 }
