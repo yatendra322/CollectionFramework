@@ -1,7 +1,10 @@
 package com.list;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 import com.input.GetInput;
 import com.interface1.ListInterfaces;
@@ -46,12 +49,38 @@ public class ArrayListClass implements ListInterfaces {
 
 	@Override
 	public void updateElement() {
-		
+		System.out.println("Enter the update record");
+		String olEl = GetInput.getInstance().getNewRecord();
+		if (this.arrayList.contains(olEl)) {
+			System.out.println("Enter the new element for replace this : " + olEl);
+			String nwEl = GetInput.getInstance().getNewRecord();
+
+			for (int i = 0; i < this.arrayList.size(); i++) {
+
+				if (this.arrayList.get(i).toString().equals(olEl)) {
+
+					this.arrayList.set(i, nwEl);
+
+					System.out.println("record updated successfully  !!!! ");
+					break;
+				}
+			}
+
+		} else {
+			System.out.println(olEl + "this data is not present in records, So Please try again");
+			updateElement();
+		}
 
 	}
 
 	@Override
 	public void retrieve() {
+
+		if (this.arrayList.isEmpty()) {
+			System.out.println("There is no recurds");
+			return;
+		}
+
 		for (String x : this.arrayList) {
 			System.out.println(x);
 		}
@@ -67,12 +96,12 @@ public class ArrayListClass implements ListInterfaces {
 	@Override
 	public void deleteElement() {
 		System.out.println("Enter the record for delete");
-		String el=GetInput.getInstance().getNewRecord();
-		for(String x:this.arrayList) {
-			if(x.equals(el)) {
-				this.arrayList.remove(el);
-				System.out.println("Opration successfully done !!!!");
-			}
+		String el = GetInput.getInstance().getNewRecord();
+		if (arrayList.contains(el)) {
+			arrayList.remove(el);
+			System.out.println("Opration successfully done !!!!");
+		} else {
+			System.out.println("Record not found !!!!!");
 		}
 	}
 
@@ -85,13 +114,16 @@ public class ArrayListClass implements ListInterfaces {
 
 	@Override
 	public void deleteSameElementButSaveOne() {
-		
+		Set<String> set = new HashSet<String>(this.arrayList);
+		this.arrayList.clear();
+		this.arrayList.addAll(set);
 
 	}
 
 	@Override
 	public void shortElement() {
-		// TODO Auto-generated method stub
+		this.arrayList = this.arrayList.stream().sorted().collect(Collectors.toList());
+		System.out.println(this.arrayList);
 
 	}
 
