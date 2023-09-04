@@ -112,11 +112,10 @@ public class LinkedListClass implements ListInterfaces {
 		this.linkedList.clear();
 		this.linkedList.addAll(set);
 	}
-
+ 
 	@Override
 	public void shortElement() {
 		this.linkedList = this.linkedList.stream().sorted().collect(Collectors.toList());
 		System.out.println(this.linkedList);
 	}
-
 }
