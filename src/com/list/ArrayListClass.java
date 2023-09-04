@@ -98,6 +98,7 @@ public class ArrayListClass implements ListInterfaces {
 		System.out.println("Enter the record for delete");
 		String el = GetInput.getInstance().getNewRecord();
 		if (arrayList.contains(el)) {
+
 			arrayList.remove(el);
 			System.out.println("Opration successfully done !!!!");
 		} else {
