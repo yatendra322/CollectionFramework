@@ -24,12 +24,17 @@ public class ConditionHandler {
 			MessagesFectory.getIntance().showDataStructure();
 			int x = GetInput.getInstance().getChoiceNo();
 			if (x == 1) {
-
 				listDataStructureHandler();
+			} else if (x == 2) { // for Set Data structure
+				setDataStructureHandler();
+			} else if (x == 3) { // for Queue Data structure
+				
+			} else if (x == 4) { // for Map Data structure
+				mapDataStructureHandler();
 			}
 			System.out.println("Do you want any other operation, press y/n ! Go for main manu press m ");
 			con = GetInput.getInstance().getYesOrNo();
-			if((con.equals("m") || con.equals("M"))){
+			if ((con.equals("m") || con.equals("M"))) {
 				Start.again();
 				break;
 			}
@@ -48,6 +53,42 @@ public class ConditionHandler {
 				arrayListOparation();
 			} else if (x == 2) {
 				linkedListOparation();
+			}
+			System.out.println("Do you want any other operation, press y/n");
+			con = GetInput.getInstance().getYesOrNo();
+		}
+		if ((con.equals("n") || con.equals("N"))) {
+			dataStructureHandler();
+		}
+	}
+
+	public void setDataStructureHandler() {
+		String con = "y";
+		while ((con.equals("y") || con.equals("Y"))) {
+			MSGHandlerOfList.getInstance().showSetDataStructure();
+			int x = GetInput.getInstance().getChoiceNo();
+			if (x == 1) {
+				hashSetOparation();
+			} else if (x == 2) {
+				linkedHashSetOparation();
+			}
+			System.out.println("Do you want any other operation, press y/n");
+			con = GetInput.getInstance().getYesOrNo();
+		}
+		if ((con.equals("n") || con.equals("N"))) {
+			dataStructureHandler();
+		}
+	}
+	
+	public void mapDataStructureHandler() {
+		String con = "y";
+		while ((con.equals("y") || con.equals("Y"))) {
+			MSGHandlerOfList.getInstance().showListDataStructure();
+			int x = GetInput.getInstance().getChoiceNo();
+			if (x == 1) {
+				hashMapOparation();
+			} else if (x == 2) {
+				linkedHashMapOparation();
 			}
 			System.out.println("Do you want any other operation, press y/n");
 			con = GetInput.getInstance().getYesOrNo();
@@ -83,7 +124,7 @@ public class ConditionHandler {
 			}
 			System.out.println("Do you want any other operation, press y/n ! Go for main manu press m ");
 			con = GetInput.getInstance().getYesOrNo();
-			if((con.equals("m") || con.equals("M"))){
+			if ((con.equals("m") || con.equals("M"))) {
 				Start.again();
 				break;
 			}
@@ -94,6 +135,42 @@ public class ConditionHandler {
 		String con = "y";
 		while ((con.equals("y") || con.equals("Y"))) {
 			MSGHandlerOfList.msgHandlerOfList.showOprationsOfList();
+			System.out.println("Do you want any other operation, press y/n");
+			con = GetInput.getInstance().getYesOrNo();
+		}
+	}
+
+	public void hashSetOparation() {
+		String con = "y";
+		while ((con.equals("y") || con.equals("Y"))) {
+			MSGHandlerOfList.msgHandlerOfList.showOperationOfSet();
+			System.out.println("Do you want any other operation, press y/n");
+			con = GetInput.getInstance().getYesOrNo();
+		}
+	}
+
+	public void linkedHashSetOparation() {
+		String con = "y";
+		while ((con.equals("y") || con.equals("Y"))) {
+			MSGHandlerOfList.msgHandlerOfList.showOperationOfSet();
+			System.out.println("Do you want any other operation, press y/n");
+			con = GetInput.getInstance().getYesOrNo();
+		}
+	}
+	
+	public void hashMapOparation() {
+		String con = "y";
+		while ((con.equals("y") || con.equals("Y"))) {
+			MSGHandlerOfList.msgHandlerOfList.showOperationOfSet();
+			System.out.println("Do you want any other operation, press y/n");
+			con = GetInput.getInstance().getYesOrNo();
+		}
+	}
+	
+	public void linkedHashMapOparation() {
+		String con = "y";
+		while ((con.equals("y") || con.equals("Y"))) {
+			MSGHandlerOfList.msgHandlerOfList.showOperationOfSet();
 			System.out.println("Do you want any other operation, press y/n");
 			con = GetInput.getInstance().getYesOrNo();
 		}
